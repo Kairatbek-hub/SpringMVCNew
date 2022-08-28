@@ -51,14 +51,14 @@ public class CompanyController {
     }
 
 
-    @PostMapping("{id}/updateCompany")
+    @PatchMapping("{id}/updateCompany")
     private String saveUpdateCompany(@PathVariable("id") Long id,@ModelAttribute("company") Company company) {
         companyService.updateCompany(id,company);
         return "redirect:/companies/allCompanies";
     }
 
 
-    @PostMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteCompany(@PathVariable("id") Long id) {
         companyService.deleteCompanyById(id);
         return "redirect:/companies/allCompanies";
